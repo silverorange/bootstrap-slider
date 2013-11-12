@@ -2,9 +2,10 @@
   "name": "bootstrap-slider",
   "main": ["bootstrap-slider.js", "slider.css"],
   "version": "2.0.0",
-  "homepage": "https://github.com/pammacdotnet/bootstrap-slider",
+  "homepage": "https://github.com/silverorange/bootstrap-slider",
   "authors": [
-    "pammacdotnet"
+    "pammacdotnet",
+    "nburka"
   ],
   "description": "Eyecon Slider for Bootstrap",
   "keywords": [
