@@ -14,7 +14,7 @@
   ],
   "license": "Apache",
   "dependencies": [
-    "modernizr": "3.0.*",
+    "modernizr": "3.0.*"
   ],
   "ignore": [
     "**/.*",
