@@ -111,17 +111,13 @@
 				this.value[1] = this.min;
 			}
 		}
-		this.diff = this.max - this.min;
-		this.percentage = [
-			(this.value[0]-this.min)*100/this.diff,
-			(this.value[1]-this.min)*100/this.diff,
-			this.step*100/this.diff
-		];
+
+		this.setMax(this.max);
 
 		this.offset = this.picker.offset();
 		this.size = this.picker[0][this.sizePos];
 
-		this.formater = options.formater;
+		this.formatter = options.formatter;
 
 		this.layout();
 
@@ -151,6 +147,16 @@
 
 		over: false,
 		inDrag: false,
+
+		setMax: function(max){
+			this.max = max;
+			this.diff = this.max - this.min;
+			this.percentage = [
+				(this.value[0]-this.min)*100/this.diff,
+				(this.value[1]-this.min)*100/this.diff,
+				this.step*100/this.diff
+			];
+		},
 		
 		showTooltip: function(){
 			this.tooltip.addClass('in');
@@ -178,14 +184,14 @@
 			}
 			if (this.range) {
 				this.tooltipInner.text(
-					this.formater(this.value[0]) + 
+					this.formatter(this.value[0]) + 
 					' : ' + 
-					this.formater(this.value[1])
+					this.formatter(this.value[1])
 				);
 				this.tooltip[0].style[this.stylePos] = this.size * (this.percentage[0] + (this.percentage[1] - this.percentage[0])/2)/100 - (this.orientation === 'vertical' ? this.tooltip.outerHeight()/2 : this.tooltip.outerWidth()/2) +'px';
 			} else {
 				this.tooltipInner.text(
-					this.formater(this.value[0])
+					this.formatter(this.value[0])
 				);
 				this.tooltip[0].style[this.stylePos] = this.size * this.percentage[0]/100 - (this.orientation === 'vertical' ? this.tooltip.outerHeight()/2 : this.tooltip.outerWidth()/2) +'px';
 			}
@@ -378,7 +384,7 @@
 		selection: 'before',
 		tooltip: 'show',
 		handle: 'round',
-		formater: function(value) {
+		formatter: function(value) {
 			return value;
 		}
 	};
