@@ -36,9 +36,7 @@
 			this.picker[0].id = this.id;
 		}
 
-		if (typeof Modernizr !== 'undefined' && Modernizr.touch) {
-			this.touchCapable = true;
-		}
+		this.touchCapable = (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
 
 		var tooltip = this.element.data('slider-tooltip')||options.tooltip;
 
