@@ -36,9 +36,11 @@
 			this.picker[0].id = this.id;
 		}
 
-		if (typeof Modernizr !== 'undefined' && Modernizr.touch) {
-			this.touchCapable = true;
+		function isTouchDevice() {
+			return !!('ontouchstart' in window);
 		}
+
+		this.touchCapable = isTouchDevice();
 
 		var tooltip = this.element.data('slider-tooltip')||options.tooltip;
 

@@ -13,9 +13,6 @@
     "bootstrap"
   ],
   "license": "Apache",
-  "dependencies": {
-    "modernizr": "2.6.*"
-  },
   "ignore": [
     "**/.*",
     "node_modules",
