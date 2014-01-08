@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================= */
- 
+
 !function( $ ) {
 
 	var Slider = function(element, options) {
@@ -222,7 +222,6 @@
 			}
 
 			this.percentage[this.dragged] = percentage;
-			this.layout();
 
 			if (this.touchCapable) {
 				// Touch: Bind touch events:
@@ -239,6 +238,9 @@
 
 			this.inDrag = true;
 			var val = this.calculateValue();
+
+			this.layout();
+
 			this.element.trigger({
 					type: 'slideStart',
 					value: val
@@ -250,7 +252,7 @@
 		},
 
 		mousemove: function(ev) {
-			
+
 			// Touch: Get the original event:
 			if (this.touchCapable && ev.type === 'touchmove') {
 				ev = ev.originalEvent;
@@ -267,8 +269,10 @@
 				}
 			}
 			this.percentage[this.dragged] = percentage;
-			this.layout();
 			var val = this.calculateValue();
+
+			this.layout();
+
 			this.element
 				.trigger({
 					type: 'slide',
